@@ -1,0 +1,32 @@
+main {
+  margin-top: 20px;
+}
+
+main .col iframe {
+  width: 100%;
+}
+
+main h1 {
+  font-size: 24px;
+  font-weight: bolder;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+main h4 {
+  color: $gray;
+  font-weight: normal;
+}
+
+main a {
+  color: $blue;
+  text-decoration: underline;
+}
+
+.col-2-9 li {
+  box-sizing: border-box;
+  margin-left: 15px;
+  list-style: disc;
+  line-height: 150%;
+  margin-bottom: 10px;
+}

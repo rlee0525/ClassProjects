@@ -1,0 +1,19 @@
+.sections_nav ul {
+  display: flex;
+  margin: 0 auto;
+  border-bottom: 1px solid $gray;
+  justify-content: center;
+}
+
+.sections_nav li {
+  padding: 5px 15px;
+}
+
+.sections_nav li:hover {
+  background-color: $light-gray;
+}
+
+.sections_nav li:last-of-type:hover {
+  text-decoration: underline;
+  background-color: transparent;
+}
