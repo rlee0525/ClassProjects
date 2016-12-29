@@ -1,6 +1,6 @@
 <h1>Search!</h1>
 
-<form action="/users/search" method="GET">
+<!-- <form action="/users/search" method="GET">
   <input
     type="text"
     name="query"
@@ -16,4 +16,14 @@
       <%= render "follows/form", user: user %>
     </li>
   <% end %>
-</ul>
+</ul> -->
+
+<nav class='users-search'>
+  <label>Username
+    <input type="text" name="username">
+  </label>
+
+  <label>Result
+    <ul class='users'></ul>
+  </label>
+</nav>
