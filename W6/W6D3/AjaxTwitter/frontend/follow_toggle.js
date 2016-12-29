@@ -22,24 +22,24 @@ class FollowToggle {
       this.$el.html("Following...");
     } else if (this.followState === "unfollowing") {
       this.$el.prop("disabled", true);
-      this.$el.html("Unfollowing...!");
+      this.$el.html("Unfollowing...");
     }
   }
 
   handleClick(event) {
-    event.preventDefault();
     const followToggle = this;
+    event.preventDefault();
 
-    if (followToggle.followState === "unfollowed") {
-      followToggle.followState = "following";
-      followToggle.render();
+    if (this.followState === "unfollowed") {
+      this.followState = "following";
+      this.render();
       APIUtil.followUser(this.userId).then(() => {
         followToggle.followState = "followed";
         followToggle.render();
       });
     } else {
-      followToggle.followState = "unfollowing";
-      followToggle.render();
+      this.followState = "unfollowing";
+      this.render();
       APIUtil.unfollowUser(this.userId).then(() => {
         followToggle.followState = "unfollowed";
         followToggle.render();
