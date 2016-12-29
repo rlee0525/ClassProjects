@@ -45,9 +45,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	const FollowToggle = __webpack_require__(1);
+	const UsersSearch = __webpack_require__(3);
 	
 	$(function() {
 	  $("button.follow-toggle").each( (idx, btn) => new FollowToggle(btn) );
+	  $("nav.users-search").each( (idx, search) => new UsersSearch(search) );
 	});
 
 
@@ -57,11 +59,13 @@
 
 	const APIUtil = __webpack_require__(2);
 	
+	
 	class FollowToggle {
-	  constructor(el) {
+	  constructor(el, options) {
 	    this.$el = $(el);
-	    this.userId = this.$el.data("user-id");
-	    this.followState = this.$el.data("initial-follow-state");
+	    this.userId = this.$el.data("user-id") || options.userId;
+	    this.followState = (this.$el.data("initial-follow-state") ||
+	                        options.followState);
 	
 	    this.render();
 	    this.$el.on("click", this.handleClick.bind(this));
@@ -123,10 +127,67 @@
 	      dataType: 'json',
 	      method
 	    })
+	  ),
+	
+	  searchUsers: (query) => (
+	    $.ajax({
+	      url: `/users/search`,
+	      method: 'GET',
+	      dataType: 'json',
+	      data: { query }
+	    })
 	  )
 	};
 	
 	module.exports = APIUtil;
+
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	const APIUtil = __webpack_require__(2);
+	const FollowToggle = __webpack_require__(1);
+	
+	class UsersSearch {
+	  constructor(el) {
+	    this.$el = $(el);
+	    this.$input = this.$el.find("input[name=username]");
+	    this.$ul = this.$el.find(".users");
+	
+	    this.$input.on("input", this.handleInput.bind(this));
+	  }
+	
+	  renderResults(users) {
+	    this.$ul.empty();
+	
+	    for (var i = 0; i < users.length; i++) {
+	      let user = users[i];
+	      let $a = $("<a></a>");
+	      $a.text(user.username);
+	      $a.attr("href", `/users/${user.id}`);
+	
+	      let $followToggle = $("<button></button>");
+	      new FollowToggle($followToggle, {
+	        userId: user.id,
+	        followState: user.followed ? "followed" : "unfollowed"
+	      });
+	
+	      let $li = $("<li></li>");
+	      $li.append($a);
+	      $li.append($followToggle);
+	
+	      this.$ul.append($li);
+	    }
+	  }
+	
+	  handleInput(event) {
+	    APIUtil.searchUsers(this.$input.val())
+	      .then(users => this.renderResults(users));
+	  }
+	}
+	
+	module.exports = UsersSearch;
 
 
 /***/ }
