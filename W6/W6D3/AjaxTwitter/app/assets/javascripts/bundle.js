@@ -136,6 +136,15 @@
 	      dataType: 'json',
 	      data: { query }
 	    })
+	  ),
+	
+	  createTweet: (data) => (
+	    $.ajax({
+	      url: `/tweets`,
+	      method: 'POST',
+	      dataType: 'json',
+	      data
+	    })
 	  )
 	};
 	
