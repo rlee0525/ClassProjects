@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import Tabs from './tabs';
 import Clock from './clock';
+import Weather from './weather';
 
 const Panes = [
   {title: "one", content: "I'm number one"},
@@ -15,6 +16,7 @@ class Root extends React.Component {
     return(
       <div>
         <Clock />
+        <Weather />
         <Tabs panes={Panes}/>
       </div>
     );
