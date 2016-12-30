@@ -1,11 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import Tabs from './tabs';
+
+const Panes = [
+  {title: "one", content: "I'm number one"},
+  {title: "two", content: "Two? That's me"},
+  {title: "three", content: "Last but best"}
+];
+
 class Root extends React.Component {
   render() {
     return(
       <div>
-        console.log("Hi");
+        <Tabs panes={Panes}/>
       </div>
     );
   }
