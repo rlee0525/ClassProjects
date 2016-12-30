@@ -28,15 +28,17 @@ class Clock extends React.Component {
     second = (second < 10) ? `0${second}` : second;
 
     return(
-      <div>
+      <div className="clock">
         <h1>Clock</h1>
-        <span className="date">
-          Date: {this.state.time.toDateString()}
-        </span>
-        <br />
-        <span className="time">
-          Time: {hour}:{minute}:{second}
-        </span>
+        <div className="date-time">
+          <span className="date">
+            Date: {this.state.time.toDateString()}
+          </span>
+          <br />
+          <span className="time">
+            Time: {hour}:{minute}:{second}
+          </span>
+        </div>
       </div>
     );
   }

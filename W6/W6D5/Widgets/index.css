@@ -56,3 +56,17 @@ h1 {
   background-color: #9C27B0;
   cursor: pointer;
 }
+
+/*CLOCK*/
+
+.clock {
+  display: inline-block;
+  position: relative;
+  left: 200px;
+}
+
+.date-time {
+  margin-top: 5px;
+  border: 1px solid black;
+  padding: 10px;
+}
