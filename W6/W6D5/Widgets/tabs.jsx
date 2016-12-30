@@ -9,24 +9,24 @@ class Tabs extends React.Component {
   }
 
   render() {
-    let pane = this.props.panes[this.state.selectedPane];
+    let currentPane = this.props.panes[this.state.selectedPane];
 
     return (
       <div className="tabs">
         <h1>Tabs</h1>
         <br />
         <ul className="tabs-header">
-          {this.props.panes.map((obj, selectedPane) => (
+          {this.props.panes.map((pane, selectedPane) => (
             <li key={selectedPane}
-              className={(pane.title === obj.title) ? "bold" : ""}
+              className={(currentPane.title === pane.title) ? "bold" : ""}
               onClick={() => {
                 this.setState({selectedPane});
-              }}>{obj.title}</li>
+              }}>{pane.title}</li>
           ))}
         </ul>
 
         <article className="tabs-content">
-          {this.props.panes[this.state.selectedPane].content}
+          {currentPane.content}
         </article>
       </div>
     );

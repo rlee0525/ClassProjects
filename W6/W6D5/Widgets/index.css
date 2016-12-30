@@ -9,7 +9,11 @@ h1 {
 
 .tabs {
   display: inline-block;
-  margin: 50px;
+  position: relative;
+  left: 50px;
+  top: 400px;
+  width: 185px;
+  height: 270px;
 }
 
 .tabs-header {
