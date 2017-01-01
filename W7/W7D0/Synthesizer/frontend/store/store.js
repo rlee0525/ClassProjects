@@ -4,7 +4,8 @@ import rootReducer from '../reducers/root_reducer';
 const preloadedState = {
   notes: [],
   isRecording: false,
-  tracks: {}
+  tracks: {},
+  isPlaying: false
 };
 
 const configureStore = (state = preloadedState) => (
