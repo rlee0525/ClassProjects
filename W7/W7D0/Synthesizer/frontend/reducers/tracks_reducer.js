@@ -6,19 +6,16 @@ import merge from 'lodash/merge';
 
 let currTrackId = 0;
 
-const tracksReducer = (state = {}, action) => {
+const trackReducer = (state = {}, action) => {
   Object.freeze(state);
 
   switch(action.type){
     case START_RECORDING:
-      currTrackId++;
-      return merge({}, state, {
-        [currTrackId]: {
-          id: currTrackId,
-          name: `Track ${currTrackId}`,
-          roll: [],
-          timeStart: action.timeStart
-        }
+      return ({
+        id: currTrackId,
+        name: `Track ${currTrackId}`,
+        roll: [],
+        timeStart: action.timeStart
       });
     case STOP_RECORDING:
       return merge({}, state, {
@@ -30,8 +27,31 @@ const tracksReducer = (state = {}, action) => {
     case ADD_NOTES:
       return merge({}, state, {
         roll: [
-          { notes: action.notes,  timeSlice: action.timeNow - state[currTrackId].timeStart }
+          ...state.roll,
+          { notes: action.notes, timeSlice: action.timeNow - state[currTrackId].timeStart }
         ]
+      });
+    default:
+      return state;
+  }
+};
+
+const tracksReducer = (state = {}, action) => {
+  Object.freeze(state);
+  currTrackId++;
+
+  switch(action.type) {
+    case START_RECORDING:
+      return merge({}, state, {
+        [currTrackId]: trackReducer(undefined, action)
+      });
+    case STOP_RECORDING:
+      return merge({}, state, {
+        [currTrackId]: trackReducer(state[currTrackId], action)
+      });
+    case ADD_NOTES:
+      return merge({}, state, {
+        [currTrackId]: trackReducer(state[currTrackId], action)
       });
     default:
       return state;
@@ -40,9 +60,10 @@ const tracksReducer = (state = {}, action) => {
 
 export default tracksReducer;
 
-
-//
-// tracks: {
+// {
+//   notes: ['a', 's'],
+//   isRecording: false,
+//   tracks: {
 //     "1": {
 //       id: 1,
 //       name: 'Track 1',
@@ -55,3 +76,15 @@ export default tracksReducer;
 //       ],
 //       timeStart: 1470164117527
 //     },
+//     "2": {
+//       id: 2,
+//       name: 'Track 2',
+//       roll:
+//       [
+//         { notes: [ 's', 'd', ';' ], timeSlice: 253386 },
+//         { notes: [], timeSlice: 265216 }
+//       ],
+//       timeStart: 1470173676236
+//     }
+//   }
+// }
