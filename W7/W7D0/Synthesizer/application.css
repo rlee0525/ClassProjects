@@ -27,8 +27,7 @@ body {
 }
 
 .w, .e, .t, .y, .u, .o, .p {
-  display: inline-block;
-  position: absolute;
+  /*position: absolute;*/
   height: 180px;
   width: 60px;
   background: black;
@@ -36,7 +35,7 @@ body {
   z-index: 10;
 }
 
-.w {
+/*.w {
   left: 200px;
 }
 
@@ -62,7 +61,7 @@ body {
 
 .p {
   left: 860px;
-}
+}*/
 
 .note-key-pressed {
   background: #757575;
