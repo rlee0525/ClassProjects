@@ -1,0 +1,66 @@
+h1 {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.note-key-list {
+  display: flex;
+  justify-content: center;
+}
+
+.note-key {
+  box-shadow: 0 10px 10px grey;
+}
+
+.w, .e, .t, .y, .u, .o, .p {
+  display: inline-block;
+  position: relative;
+  height: 180px;
+  width: 60px;
+  background: black;
+  color: white;
+  z-index: 10;
+}
+
+.note-key, .note-key-pressed {
+  border: 1.5px solid black;
+  width: 80px;
+  height: 300px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+
+/*.w {
+  left: 200px;
+}
+
+.e {
+  left: 287px;
+}
+
+.t {
+  left: 448px;
+}
+
+.y {
+  left: 530px;
+}
+
+.u {
+  left: 612px;
+}
+
+.o {
+  left: 770px;
+}
+
+.p {
+  left: 860px;
+}*/
+
+.note-key-pressed {
+  background: #757575;
+}
