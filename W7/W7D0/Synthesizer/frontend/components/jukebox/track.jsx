@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Track = ({ track, disabled, onPlay }) => (
+const Track = ({ track, disabled, onPlay, onDelete }) => (
   <div key={track.id}
     className='track'>
     { track.name }
@@ -10,6 +10,12 @@ const Track = ({ track, disabled, onPlay }) => (
         disabled={disabled}
         onClick={onPlay}>
         Play
+      </button>
+      <button
+        className='delete-button'
+        disabled={disabled}
+        onClick={onDelete}>
+        Delete
       </button>
     </div>
   </div>

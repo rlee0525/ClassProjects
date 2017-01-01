@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { groupUpdate } from '../../actions/notes_actions';
 import { startPlaying, stopPlaying } from '../../actions/playing_actions';
+import { deleteTrack } from '../../actions/tracks_actions';
 import Jukebox from './jukebox';
 
 const mapStateToProps = ({ tracks, isRecording, isPlaying }) => ({
@@ -11,6 +12,7 @@ const mapStateToProps = ({ tracks, isRecording, isPlaying }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  onDelete: id => e => dispatch(deleteTrack(id)),
   onPlay: track => e => {
     dispatch(startPlaying());
     const roll = track.roll;
