@@ -1,6 +1,10 @@
-h1 {
-  text-align: center;
+body {
   font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .note-key-list {
@@ -10,16 +14,6 @@ h1 {
 
 .note-key {
   box-shadow: 0 10px 10px grey;
-}
-
-.w, .e, .t, .y, .u, .o, .p {
-  display: inline-block;
-  position: relative;
-  height: 180px;
-  width: 60px;
-  background: black;
-  color: white;
-  z-index: 10;
 }
 
 .note-key, .note-key-pressed {
@@ -32,8 +26,17 @@ h1 {
   text-align: center;
 }
 
+.w, .e, .t, .y, .u, .o, .p {
+  display: inline-block;
+  position: absolute;
+  height: 180px;
+  width: 60px;
+  background: black;
+  color: white;
+  z-index: 10;
+}
 
-/*.w {
+.w {
   left: 200px;
 }
 
@@ -59,8 +62,38 @@ h1 {
 
 .p {
   left: 860px;
-}*/
+}
 
 .note-key-pressed {
   background: #757575;
+}
+
+button {
+  width: 50px;
+  height: 30px;
+  background: green;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 13px;
+  color: white;
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.stop-button {
+  background: red;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 2px grey;
+}
+
+button:disabled {
+  background: white;
+  color: black;
+}
+
+.stop-button:disabled {
+  color: red;
 }
