@@ -12,10 +12,18 @@ class Synth extends React.Component {
 
   onKeyDown(e) {
     this.props.keyPressed(e.key);
+
+    if (this.props.isRecording) {
+      this.props.addNotes(this.props.notes);
+    }
   }
 
   onKeyUp(e) {
     this.props.keyReleased(e.key);
+
+    if (this.props.isRecording) {
+      this.props.addNotes(this.props.notes);
+    }
   }
 
   componentDidMount() {
