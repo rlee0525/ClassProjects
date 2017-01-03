@@ -10,6 +10,7 @@ body {
 .note-key-list {
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .note-key {
@@ -27,41 +28,41 @@ body {
 }
 
 .w, .e, .t, .y, .u, .o, .p {
-  /*position: absolute;*/
+  position: absolute;
   height: 180px;
   width: 60px;
   background: black;
   color: white;
   z-index: 10;
 }
-/*
+
 .w {
-  left: 200px;
+  left: 50px;
 }
 
 .e {
-  left: 287px;
+  left: 137px;
 }
 
 .t {
-  left: 448px;
+  left: 298px;
 }
 
 .y {
-  left: 530px;
+  left: 380px;
 }
 
 .u {
-  left: 612px;
+  left: 462px;
 }
 
 .o {
-  left: 770px;
+  left: 620px;
 }
 
 .p {
-  left: 860px;
-}*/
+  left: 710px;
+}
 
 .note-key-pressed {
   background: #757575;

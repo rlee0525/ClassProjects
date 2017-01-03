@@ -32,12 +32,14 @@ class TodoForm extends React.Component {
       <form className="todo-form" onSubmit={this.handleSubmit}>
         <label>Title:
           <input value={this.state.title}
-            onChange={this.change('title')}></input>
+            onChange={this.change('title')}
+            required></input>
         </label>
 
         <label>Body:
           <textarea value={this.state.body}
-            onChange={this.change('body')}></textarea>
+            onChange={this.change('body')}
+            required></textarea>
         </label>
 
         <button>Create Todo!</button>
