@@ -1,1 +1,3 @@
-export const selectAllPokemon = (state) => Object.values(state.pokemon);
+import values from 'lodash/values';
+
+export const selectAllPokemon = (state) => values(state.pokemon);
