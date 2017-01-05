@@ -45,8 +45,8 @@
 - [Day 0: Synthesizer Redux](W7/W7D0)
 - [Day 1: Todos App React & Redux](W7/W7D1)
 - [Day 2: Todos App Rails API](W7/W7D2)
-- [Day 3: Jbuilder & Pokedex]
-- [Day 4: Pokedex]
+- [Day 3: Jbuilder & Pokedex](W7/W7D3)
+- [Day 4: Pokedex React Router](W7/W7D4)
 - [Day 5: BenchBnB]
 
 ### Week 8
