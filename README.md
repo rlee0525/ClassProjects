@@ -44,7 +44,7 @@
 ### Week 7
 - [Day 0: Synthesizer Redux](W7/W7D0)
 - [Day 1: Todos App React & Redux](W7/W7D1)
-- [Day 2: Todos App Rails API]
+- [Day 2: Todos App Rails API](W7/W7D2)
 - [Day 3: Jbuilder & Pokedex]
 - [Day 4: Pokedex]
 - [Day 5: BenchBnB]
