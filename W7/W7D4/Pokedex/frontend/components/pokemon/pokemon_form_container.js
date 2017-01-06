@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import PokemonForm from './pokemon_form';
-import { receiveCreatePokemon } from '../../actions/pokemon_actions';
+import { requestCreatePokemon } from '../../actions/pokemon_actions';
 
 const mapDispatchToProps = dispatch => ({
-  receiveCreatePokemon: (newPokemon) => dispatch(receiveCreatePokemon(newPokemon))
+  requestCreatePokemon: (newPokemon) => dispatch(requestCreatePokemon(newPokemon))
 });
 
 export default connect(
