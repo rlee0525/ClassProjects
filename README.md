@@ -18,7 +18,7 @@
 - [Day 2: AA Questions]
 - [Day 3: Rails Associations & Migrations]
 - [Day 4: ActiveRecord Queries & Associations]
-- [Day 5: ActiveRecordLite]
+- [Day 5: ActiveRecordLite](W3/W3D5)
 
 ### Week 4
 - [Day 1: Rails Routing & Contacts API](W4/W4D1)
