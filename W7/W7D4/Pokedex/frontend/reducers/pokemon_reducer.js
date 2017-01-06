@@ -3,7 +3,6 @@ import merge from 'lodash/merge';
 
 const pokemonReducer = (state = {}, action) => {
   Object.freeze(state);
-
   switch(action.type) {
     case RECEIVE_ALL_POKEMON:
       return merge({}, state, action.pokemon);
