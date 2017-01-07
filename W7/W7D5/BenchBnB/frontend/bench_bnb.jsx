@@ -5,6 +5,8 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // TODO: testing
+// import { requestLogin } from './util/session_api_util';
+import { loginUser } from './util/session_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore();
@@ -13,4 +15,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // TODO: testing
   window.store = store;
+  window.loginUser = loginUser;
 });
