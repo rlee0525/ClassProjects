@@ -14,7 +14,7 @@
 - [Day 4: Big-O Exercises](W2/W2D4)
 
 ### Week 3
-- [Day 1: SQL Zoo]
+- [Day 1: SQL Zoo](W3/W3D1)
 - [Day 2: AA Questions]
 - [Day 3: Rails Associations & Migrations]
 - [Day 4: ActiveRecord Queries & Associations](W3/W3D4)
