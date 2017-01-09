@@ -47,7 +47,7 @@
 - [Day 2: Todos App Rails API](W7/W7D2)
 - [Day 3: Jbuilder & Pokedex](W7/W7D3)
 - [Day 4: Pokedex React Router](W7/W7D4)
-- [Day 5: BenchBnB]
+- [Day 5: BenchBnB](W7/W7D5)
 
 ### Week 8
-- [Day 1: BenchBnB]
+- [Day 1: BenchBnB](W8/W8D1)
