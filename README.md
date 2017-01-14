@@ -15,7 +15,7 @@
 
 ### Week 3
 - [Day 1: SQL Zoo](W3/W3D1)
-- [Day 2: AA Questions]
+- [Day 2: AA Questions](W3/W3D2)
 - [Day 3: Rails Associations & Migrations]
 - [Day 4: ActiveRecord Queries & Associations](W3/W3D4)
 - [Day 5: ActiveRecordLite](W3/W3D5)
