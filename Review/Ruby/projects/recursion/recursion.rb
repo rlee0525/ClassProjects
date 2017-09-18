@@ -52,6 +52,42 @@ end
 
 p deep_dup([1, [2], [3, [4]]]) == [1, [2], [3, [4]]]
 
+def iter_fib(n)
+  return [] if n == 0
+  return [0] if n == 1
+  arr = [0, 1]
+  
+  while arr.length < n
+    arr << arr[-1] + arr[-2]
+  end
+
+  arr
+end
+
+p iter_fib(7) == [0, 1, 1, 2, 3, 5, 8]
+
+def rec_fib(n)
+  if n <= 2
+    arr = [0, 1].take(n)
+  else
+    arr = rec_fib(n - 1)
+    arr << arr[-1] + arr[-2]
+  end
+
+  arr
+end
+
+p rec_fib(7) == [0, 1, 1, 2, 3, 5, 8]
+
+
+
+
+
+
+
+
+
+
 
 
 
