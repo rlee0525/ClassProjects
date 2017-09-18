@@ -37,10 +37,20 @@ end
 
 p exp2(2, 5) == 32
 
+def deep_dup(arr)
+  copied = []
+  arr.each do |el|
+    if el.is_a? Array
+      copied << deep_dup(el)
+    else
+      copied << el
+    end
+  end
 
+  copied
+end
 
-
-
+p deep_dup([1, [2], [3, [4]]]) == [1, [2], [3, [4]]]
 
 
 
