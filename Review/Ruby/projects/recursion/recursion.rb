@@ -108,6 +108,29 @@ p permutation([1]) == [[1]]
 p permutation([1, 2]) == [[1, 2], [2, 1]]
 p permutation([1, 2, 3]) == [[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]
 
+def bsearch(arr, target)
+  return if arr.empty?
+
+  mid = arr.length / 2
+  
+  if arr[mid] == target
+    return mid
+  elsif arr[mid] > target
+    bsearch(arr[0...mid], target)
+  else
+    ans = bsearch(arr[mid + 1..-1], target)
+    mid + 1 + ans if ans
+  end
+end
+
+p bsearch([1, 2, 3], 1) == 0
+p bsearch([2, 3, 4, 5], 3) == 1
+p bsearch([2, 4, 6, 8, 10], 6) == 2
+p bsearch([1, 3, 4, 5, 9], 5) == 3
+p bsearch([1, 2, 3, 4, 5, 6], 6) == 5
+p bsearch([1, 2, 3, 4, 5, 6], 0) == nil
+p bsearch([1, 2, 3, 4, 5, 7], 6) == nil
+
 
 
 
