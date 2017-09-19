@@ -131,9 +131,53 @@ p bsearch([1, 2, 3, 4, 5, 6], 6) == 5
 p bsearch([1, 2, 3, 4, 5, 6], 0) == nil
 p bsearch([1, 2, 3, 4, 5, 7], 6) == nil
 
+class Array
+  def merge_sort
+    return self if count < 2
+    mid = count / 2
+    left, right = self.take(mid), self.drop(mid)
+    sorted_left = left.merge_sort
+    sorted_right = right.merge_sort
 
+    merge(sorted_left, sorted_right)
+  end
 
+  def merge(left, right)
+    merged = []
+    until left.empty? || right.empty?
+      merged << ((left.first < right.first) ? left.shift : right.shift)
+    end
 
+    merged + left + right
+  end
+end
+
+p [2, 31, 0, 14, 15, 17, 100, 3, 2, 1, 10].merge_sort == [0, 1, 2, 2, 3, 10, 14, 15, 17, 31, 100]
+
+def make_change(amount, coins = [25, 10, 5, 1])
+  return [] if amount == 0
+  return nil if coins.all? { |coin| coin > amount }
+
+  coins = coins.sort.reverse
+  best_change = nil
+
+  coins.each_with_index do |coin, idx|
+    next if coin > amount
+    remainder = amount - coin
+    best_remainder = make_change(remainder, coins.drop(idx))
+    next if best_remainder.nil?
+
+    current_change = [coin] + best_remainder
+
+    if best_change.nil? || current_change.count < best_change.count
+      best_change = current_change
+    end
+  end
+
+  best_change
+end
+
+p make_change(24, [10, 7, 1]) == [10, 7, 7]
 
 
 
