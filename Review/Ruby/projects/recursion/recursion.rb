@@ -93,7 +93,7 @@ def permutation(arr)
   first = arr.shift
   perms = permutation(arr)
   total = []
-
+  
   perms.each do |perm|
     (0..perm.length).each do |i|
       total << perm[0...i] + [first] + perm[i..-1]
@@ -103,6 +103,9 @@ def permutation(arr)
   total
 end
 
+p permutation([]) == [[]]
+p permutation([1]) == [[1]]
+p permutation([1, 2]) == [[1, 2], [2, 1]]
 p permutation([1, 2, 3]) == [[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]
 
 
