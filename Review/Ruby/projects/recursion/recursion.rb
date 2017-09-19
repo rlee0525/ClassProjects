@@ -79,9 +79,31 @@ end
 
 p rec_fib(7) == [0, 1, 1, 2, 3, 5, 8]
 
+def subsets(arr)
+  return [[]] if arr.empty?
+  subset = subsets(arr[0...-1])
+  subset + subset.map { |el| el + [arr[-1]]}
+end
 
+p subsets([1, 2, 3]) == [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
 
+def permutation(arr)
+  return [arr] if arr.length <= 1
 
+  first = arr.shift
+  perms = permutation(arr)
+  total = []
+
+  perms.each do |perm|
+    (0..perm.length).each do |i|
+      total << perm[0...i] + [first] + perm[i..-1]
+    end
+  end
+
+  total
+end
+
+p permutation([1, 2, 3]) == [[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]
 
 
 
