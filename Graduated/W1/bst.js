@@ -133,6 +133,27 @@ class BinarySearchTree {
 
     return node;
   }
+
+  delete(val, node = this.root) {
+    if (!this.find(val)) return null;
+
+    if (val < node.val) {
+      node.left = this.delete(val, node.left);
+    } else if (val > node.val) {
+      node.right = this.delete(val, node.right);
+    } else {
+      if (!node.left) {
+        return node.right;
+      } else if (!node.right) {
+        return node.left;
+      }
+
+      node.val = this.min(node.right).val;
+      node.right = this.delete(node.val, node.right);
+    }
+
+    return node;
+  }
 }
 
 let bst = new BinarySearchTree();
@@ -142,13 +163,15 @@ bst.insert(7);
 bst.insert(4);
 bst.insert(2);
 bst.insert(1);
+bst.insert(3.5);
+bst.insert(4.5);
 
 console.log(bst.root);
-console.log(bst.min());
-console.log(bst.max());
-console.log(bst.find(3));
+// console.log(bst.min());
+// console.log(bst.max());
+// console.log(bst.find(3));
 
-bst.deleteMin();
+bst.delete(3);
 console.log(bst.root);
 console.log(bst.height());
 
