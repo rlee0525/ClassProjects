@@ -40,7 +40,7 @@ class BinarySearchTree {
 
   insertRec(val, node = this.root) {
     let newNode = new BSTNode(val);
-
+    
     if (!this.root) {
       this.root = newNode;
       return;
@@ -190,5 +190,3 @@ console.log(bst.delete(3));
 console.log(bst.inorder());
 console.log(bst.preorder());
 console.log(bst.postorder());
-
-module.exports = BinarySearchTree;
