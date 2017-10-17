@@ -9,6 +9,7 @@ class BinarySearchTree {
     this.root = null;
   }
 
+  // rec
   insert(val, node = this.root) {
     let newNode = new BSTNode(val);
     
@@ -27,6 +28,37 @@ class BinarySearchTree {
 
     return node;
   }
+
+  // iter
+  // insert(val) {
+  //   let newNode = new BSTNode(val);
+  //   if (!this.root) {
+  //     this.root = newNode;
+  //     return;
+  //   }
+
+  //   let currentNode = this.root;
+    
+  //   while (currentNode) {
+  //     if (val <= currentNode.val) {
+  //       if (currentNode.left) {
+  //         currentNode = currentNode.left;
+  //       } else {
+  //         currentNode.left = newNode;
+  //         break;
+  //       }
+  //     } else {
+  //       if (currentNode.right) {
+  //         currentNode = currentNode.right;
+  //       } else {
+  //         currentNode.right = newNode;
+  //         break;
+  //       }
+  //     }
+  //   }
+
+  //   return newNode;
+  // }
 
   min(node = this.root) {
     if (!node.left) {
@@ -54,6 +86,44 @@ class BinarySearchTree {
       return this.find(val, node.right);
     }
   }
+
+  // rec
+  height(node = this.root) {
+    if (!node) return 0;
+
+    return (1 + Math.max(this.height(node.left), this.height(node.right)));
+  }
+
+  // iter
+  // height(node = this.root) {
+  //   if (!node) return -1;
+
+  //   let queue = [];
+  //   queue.push(node);
+  //   let height = 0;
+
+  //   while (true) {
+  //     let nodeCount = queue.length;
+  //     if (nodeCount === 0) return height;
+
+  //     height++;
+
+  //     while (nodeCount !== 0) {
+  //       let currentNode = queue[0];
+  //       queue = queue.slice(1, queue.length);
+
+  //       if (currentNode.left) {
+  //         queue.push(currentNode.left);
+  //       }
+
+  //       if (currentNode.right) {
+  //         queue.push(currentNode.right);
+  //       }
+
+  //       nodeCount--;
+  //     }
+  //   }
+  // }
 }
 
 let bst = new BinarySearchTree();
@@ -68,6 +138,7 @@ console.log(bst.root.left);
 console.log(bst.min());
 console.log(bst.max());
 console.log(bst.find(3));
+console.log(bst.height());
 
 
 
