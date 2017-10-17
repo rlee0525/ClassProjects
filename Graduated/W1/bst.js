@@ -140,31 +140,85 @@ class BinarySearchTree {
     return node;
   }
 
-  inorder(node = this.root, arr = []) {
+  inorder(node = this.root) {
+    let res = [];
+    let stack = [];
+
+    while (node || stack.length !== 0) {
+      if (node) {
+        stack.push(node);
+        node = node.left;
+      } else {
+        let currentNode = stack.pop();
+        res.push(currentNode.val);
+        node = currentNode.right;
+      }
+    }
+
+    return res;
+  }
+
+  inorderRec(node = this.root, arr = []) {
     if (!node) return arr;
 
-    this.inorder(node.left, arr);
+    this.inorderRec(node.left, arr);
     arr.push(node.val);
-    this.inorder(node.right, arr);
+    this.inorderRec(node.right, arr);
 
     return arr;
   }
 
-  preorder(node = this.root, arr = []) {
+  preorder(node = this.root) {
+    let res = [];
+    let stack = [];
+
+    while (node || stack.length !== 0) {
+      if (node) {
+        res.push(node.val);
+        stack.push(node);
+        node = node.left;
+      } else {
+        let currentNode = stack.pop();
+        node = currentNode.right;
+      }
+    }
+
+    return res;
+  }
+
+  preorderRec(node = this.root, arr = []) {
     if (!node) return arr;
 
     arr.push(node.val);
-    this.preorder(node.left, arr);
-    this.preorder(node.right, arr);
+    this.preorderRec(node.left, arr);
+    this.preorderRec(node.right, arr);
 
     return arr;
   }
 
-  postorder(node = this.root, arr = []) {
+  postorder(node = this.root) {
+    let res = [];
+    let stack = [];
+
+    while (node || stack.length !== 0) {
+      if (node) {
+        res = [node.val].concat(res);
+        stack.push(node);
+        node = node.right;
+      } else {
+        let currentNode = stack.pop();
+        node = currentNode.left;
+      }
+    }
+
+    return res;
+  }
+
+  postorderRec(node = this.root, arr = []) {
     if (!node) return arr;
 
-    this.postorder(node.left, arr);
-    this.postorder(node.right, arr);
+    this.postorderRec(node.left, arr);
+    this.postorderRec(node.right, arr);
     arr.push(node.val);
 
     return arr;
@@ -188,7 +242,10 @@ console.log(bst.find(4));
 console.log(bst.height());
 console.log(bst.delete(3));
 console.log(bst.inorder());
+console.log(bst.inorderRec());
 console.log(bst.preorder());
+console.log(bst.preorderRec());
 console.log(bst.postorder());
+console.log(bst.postorderRec());
 
 module.exports = BinarySearchTree;
