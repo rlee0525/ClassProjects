@@ -124,6 +124,15 @@ class BinarySearchTree {
   //     }
   //   }
   // }
+
+  deleteMin(node = this.root) {
+    if (!node) return null;
+    if (!node.left) return node.right;
+
+    node.left = this.deleteMin(node.left);
+
+    return node;
+  }
 }
 
 let bst = new BinarySearchTree();
@@ -134,12 +143,16 @@ bst.insert(4);
 bst.insert(2);
 bst.insert(1);
 
-console.log(bst.root.left);
+console.log(bst.root);
 console.log(bst.min());
 console.log(bst.max());
 console.log(bst.find(3));
+
+bst.deleteMin();
+console.log(bst.root);
 console.log(bst.height());
 
+module.exports = BinarySearchTree;
 
 
 
