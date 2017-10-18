@@ -66,8 +66,29 @@ const getDepth = node => {
 };
 
 // Given Root & No parent
+// Time: O(h) Space: O(h) - stack
+const LCA3 = (node1, node2, root) => {
+  if (!root) return root;
 
+  if (node1.val < root.val && node2.val < root.val) return LCA3(node1, node2, root.left);
+  if (node1.val > root.val && node2.val > root.val) return LCA3(node1, node2, root.right);
+  return root;
+};
 
+// Time: O(h) Space: O(1)
+const LCA4 = (node1, node2, root) => {
+  while (root) {
+    if (node1.val < root.val && node2.val < root.val) {
+      root = root.left;
+    } else if (node1.val > root.val && node2.val > root.val) {
+      root = root.right;
+    } else {
+      break;
+    }
+  }
+
+  return root;
+};
 
 
 
