@@ -1,3 +1,5 @@
+// space complexity
+// n * 26 ^ n => 26 ^ n
 class Trie {
   constructor() {
     this.root = {};
