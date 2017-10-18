@@ -11,6 +11,8 @@
 //   (D)
 // The LCA of D and E would be B.
 
+let BinarySearchTree = require("./bst.js");
+
 // With parent pointer
 // Time: O(h) Space: O(h) - Brute Force
 const LCA1 = (node1, node2) => {
